@@ -309,15 +309,16 @@ class TTT:
                 for e in potentialMoves:
                     pos = e[0]*3+e[1]
                     scoreList += [[5,pos]]  
-        """ 
+        
         #this creates a random first move
         moves = self.movesAvailable()
         if moves == [0, 1, 2, 3, 4, 5, 6, 7, 8]:
+            #scoreList += [[7,1]]
             for e in moves:
                 rand = random.randint(4,6)
                 new = [rand, e]
                 scoreList += [new]
-        #this should be commented out to make this bot unbeatable
+        #^this should be commented out to make this bot unbeatable
 
 
         #filling all available moves with a value for all cases other that win or loose
@@ -334,7 +335,12 @@ class TTT:
             elif e == 4:
                 new = [4,e]
             scoreList += [new]
+        """
+        moves = self.movesAvailable()
+        for e in moves:
+            scoreList += [[1,e]]
         return scoreList
+    
 
     def scoresAvailableAi(self,LoDicts,Turn):
         """For an instance of a TTT board its take a list of 3 dictionaries and a string argument of 'X' or 'O' and returns a list of lists with data paired as score then boardplace"""
@@ -938,7 +944,8 @@ def playerSelect(win,s, currentX = 'human', currentO = 'human'):
                 click = transClick(getMoveFromMouse(win))
                 
                 if click == 'playerO' or click == 'save' or click == 'playerX':
-                    continue
+                    playerXText.setText(playerX.upper())
+                    break
                 elif click == 'human':
                     playerX = 'human'
                     playerXText.setText(click.upper())
@@ -950,10 +957,12 @@ def playerSelect(win,s, currentX = 'human', currentO = 'human'):
         elif click == 'playerO':
             playerOText.setText('SELECT')
             while click == 'playerO':
+                
                 click = transClick(getMoveFromMouse(win))
 
                 if click == 'playerX' or click == 'save' or click == 'playerO':
-                    continue
+                    playerOText.setText(playerO.upper())
+                    break
                 elif click == 'human':
                     playerO = 'human'
                     playerOText.setText(click.upper())

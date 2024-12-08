@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TicTacToe"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "KillerMelon Publishing"
 #define MyAppExeName "TicTacToe.exe"
 #define MyAppAssocName MyAppName + ""
